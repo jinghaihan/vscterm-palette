@@ -1,0 +1,82 @@
+{
+  "name": "vscterm-palette",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@10.14.0",
+  "description": "🎨 CLI tool to convert VSCode themes to terminal color schemes.",
+  "author": "jinghaihan",
+  "license": "MIT",
+  "homepage": "https://github.com/jinghaihan/vscterm-palette#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jinghaihan/vscterm-palette.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jinghaihan/vscterm-palette/issues"
+  },
+  "keywords": [
+    "vscode",
+    "vscode-theme",
+    "terminal-theme",
+    "iterm",
+    "tabby",
+    "converter"
+  ],
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./cli": "./dist/cli.mjs",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "bin": {
+    "vscterm-palette": "./bin/vscterm-palette.mjs"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "scripts": {
+    "start": "tsx ./src/cli.ts",
+    "build": "unbuild",
+    "typecheck": "tsc",
+    "test": "vitest",
+    "lint": "eslint",
+    "deps": "taze major -I",
+    "release": "bumpp && pnpm publish --no-git-checks",
+    "catalog": "pncat",
+    "prepare": "npx simple-git-hooks",
+    "bootstrap": "pnpm install",
+    "preinstall": "npx only-allow pnpm",
+    "prepublishOnly": "pnpm build"
+  },
+  "dependencies": {
+    "ansis": "catalog:node",
+    "cac": "catalog:node",
+    "colord": "catalog:utils",
+    "pathe": "catalog:node",
+    "yaml": "catalog:prod",
+    "yocto-spinner": "catalog:node"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "catalog:lint",
+    "@types/node": "catalog:types",
+    "bumpp": "catalog:cli",
+    "eslint": "catalog:lint",
+    "lint-staged": "catalog:lint",
+    "pncat": "catalog:cli",
+    "simple-git-hooks": "catalog:lint",
+    "taze": "catalog:cli",
+    "tsx": "catalog:script",
+    "typescript": "catalog:dev",
+    "unbuild": "catalog:build",
+    "vitest": "catalog:test"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts,mjs}": "eslint --fix"
+  }
+}
