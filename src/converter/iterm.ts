@@ -36,6 +36,10 @@ async function writeItermTheme(theme: ItermTheme, name: string): Promise<void> {
   await writeFile(name, itermThemeToXml(theme), 'utf-8')
 }
 
+/**
+ * Credit to @HiDeoo
+ * https://github.com/HiDeoo/iTerm2-theme-vitesse/blob/main/src/libs/iterm.ts
+ */
 function itermThemeToXml(itermTheme: ItermTheme) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
