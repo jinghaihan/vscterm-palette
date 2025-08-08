@@ -1,7 +1,7 @@
 {
   "name": "vscterm-palette",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "packageManager": "pnpm@10.14.0",
   "description": "🎨 CLI tool to convert VSCode themes to terminal color schemes.",
   "author": "jinghaihan",
