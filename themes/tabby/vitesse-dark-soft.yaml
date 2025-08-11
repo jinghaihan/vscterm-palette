@@ -1,7 +1,7 @@
 name: vitesse-dark-soft
 background: "#222"
 foreground: "#dbd7caee"
-selection: "#eeeeee18"
+selection: null
 cursor: "#dbd7caee"
 cursorAccent: "#222"
 colors:

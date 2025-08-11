@@ -15,7 +15,8 @@ export async function convertToTabbyTheme(name: string, colors: Colors, cwd: str
     name,
     background: colors.background,
     foreground: colors.foreground,
-    selection: colors.selectionBackground,
+    // selection: colors.selectionBackground,
+    selection: null,
     cursor: colors.cursorBackground,
     cursorAccent: colors.cursorForeground,
     colors: [

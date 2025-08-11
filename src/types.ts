@@ -107,7 +107,7 @@ export interface TabbyTheme {
   name: string
   foreground: string
   background: string
-  selection: string
+  selection: string | null
   cursor: string
   cursorAccent: string
   colors: string[]

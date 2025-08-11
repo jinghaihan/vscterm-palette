@@ -49,6 +49,10 @@ npx vscterm-palette --iterm --tabby
 
 ## Usage
 
+<p align='center'>
+<img src='./assets/help.png' />
+</p>
+
 ### Command Line Options
 
 - `--theme <paths...>` - Path to theme file(s), supports local files or remote URLs

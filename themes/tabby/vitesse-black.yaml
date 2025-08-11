@@ -1,7 +1,7 @@
 name: vitesse-black
 background: "#000"
 foreground: "#dbd7cacc"
-selection: "#eeeeee18"
+selection: null
 cursor: "#dbd7cacc"
 cursorAccent: "#000"
 colors:
