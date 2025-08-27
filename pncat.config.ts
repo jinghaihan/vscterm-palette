@@ -8,7 +8,8 @@ export default defineConfig({
     },
     {
       name: 'utils',
-      match: ['colord'],
+      match: ['colord', 'jsonc-parser'],
     },
   ]),
+  postRun: 'eslint --fix "**/package.json" "**/pnpm-workspace.yaml"',
 })

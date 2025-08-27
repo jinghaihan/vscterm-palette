@@ -14,9 +14,8 @@ export async function convertToItermTheme(name: string, colors: Colors, cwd: str
   }
 
   const dir = resolve(cwd, 'themes/iterm')
-  if (!existsSync(dir)) {
+  if (!existsSync(dir))
     mkdirSync(dir, { recursive: true })
-  }
 
   await writeItermTheme(itermTheme, resolve(dir, `${name}.itermcolors`))
 }

@@ -19,7 +19,7 @@ try {
     .option('--theme <paths...>', 'Path to the theme file, local or remote url')
     .option('--iterm', 'Convert to iterm theme')
     .option('--tabby', 'Convert to tabby theme')
-    .option('--force', 'Force to fetch from remote, even if the theme is already in cache', { default: false })
+    .option('--force', 'Force to fetch from remote', { default: false })
     .action(async (options: CommandOptions) => {
       console.log(`${c.yellow(name)} ${c.dim(`v${version}`)}`)
       console.log()
@@ -50,9 +50,8 @@ try {
         }
       }
 
-      if (config.tabbyConfigPath) {
+      if (config.tabbyConfigPath)
         await updateTabbyConfig(config.tabbyConfigPath, config.theme)
-      }
     })
 
   cli.help()

@@ -40,9 +40,8 @@ export async function convertToTabbyTheme(name: string, colors: Colors, cwd: str
   } as TabbyTheme
 
   const dir = resolve(cwd, 'themes/tabby')
-  if (!existsSync(dir)) {
+  if (!existsSync(dir))
     mkdirSync(dir, { recursive: true })
-  }
 
   tabbyTheme.set(name, theme)
   await writeFile(resolve(dir, `${name}.yaml`), stringify(theme))

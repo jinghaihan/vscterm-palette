@@ -12,13 +12,11 @@ export async function resolveConfig(options: CommandOptions): Promise<ConvertOpt
   options.iterm = typeof options.iterm === 'boolean' ? options.iterm : false
   options.tabby = typeof options.tabby === 'boolean' ? options.tabby : false
 
-  if (options.theme) {
+  if (options.theme)
     options.theme = Array.isArray(options.theme) ? options.theme : [options.theme]
-  }
 
-  if (!options.iterm && !options.tabby) {
+  if (!options.iterm && !options.tabby)
     throw new Error('Please specify the target format with --iterm or --tabby')
-  }
 
   // merge config file
   const configPath = join(options.cwd, options.config || 'vscterm.config.yaml')

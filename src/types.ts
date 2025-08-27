@@ -46,6 +46,9 @@ export interface VscodeSchemes {
 
 export interface VscodeColors extends VscodeBaseColors {
   'editor.background'?: string
+  'editor.foreground'?: string
+  'editorWarning.foreground'?: string
+  'editorError.foreground'?: string
 }
 
 export interface VscodeWorkbenchColors extends VscodeBaseColors {

@@ -7,6 +7,10 @@
 
 🎨 A CLI tool that converts VSCode themes to terminal color schemes for iTerm2 and Tabby.
 
+<p align='center'>
+<img src='./assets/help.png' />
+</p>
+
 ## What is this?
 
 Vscterm Palette helps you bring your favorite VSCode themes to your terminal. Instead of manually configuring terminal colors to match your VSCode theme, this tool automatically extracts the color palette from VSCode themes and converts them into formats that your terminal can use.
@@ -46,27 +50,6 @@ Then run:
 # Convert all themes to both formats
 npx vscterm-palette --iterm --tabby
 ```
-
-## Usage
-
-<p align='center'>
-<img src='./assets/help.png' />
-</p>
-
-### Command Line Options
-
-- `--theme <paths...>` - Path to theme file(s), supports local files or remote URLs
-- `--iterm` - Convert to iTerm2 theme format
-- `--tabby` - Convert to Tabby theme format
-- `--config <path>` - Path to config file (default: `vscterm.config.yaml`)
-- `--force` - Force fetch from remote, even if theme is cached
-
-### Configuration File
-
-The config file (`vscterm.config.yaml`) supports:
-
-- `themes` - Array of theme URLs or local file paths
-- `tabbyConfig` - Path to your Tabby configuration file (optional)
 
 ## Output
 

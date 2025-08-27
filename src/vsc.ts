@@ -6,7 +6,7 @@ import c from 'ansis'
 import { resolve } from 'pathe'
 import Spinner from 'yocto-spinner'
 import { CACHE_DIR } from './constants'
-import { extractThemeName, isUrl, normalizeUrl } from './utils'
+import { extractThemeName, isHttpUrl, jsonParse, normalizeUrl } from './utils'
 
 export async function getVscColors(path: string, force: boolean): Promise<Colors> {
   const theme = await fetchVscTheme(path, force)
@@ -26,18 +26,18 @@ export function extractFromVscodeTheme(theme: VscodeTheme): Colors {
 
   return {
     background: colors['editor.background'],
-    foreground: colors['terminal.foreground'],
+    foreground: colors['terminal.foreground'] || colors['editor.foreground'],
     selectionBackground: colors['terminal.selectionBackground'] || colors['editor.background'],
-    cursorBackground: colors['terminal.foreground'],
+    cursorBackground: colors['terminal.foreground'] || colors['editor.foreground'],
     cursorForeground: colors['editor.background'],
     ansiBlack: colors['terminal.ansiBlack'],
     ansiBlue: colors['terminal.ansiBlue'],
     ansiCyan: colors['terminal.ansiCyan'],
     ansiGreen: colors['terminal.ansiGreen'],
     ansiMagenta: colors['terminal.ansiMagenta'],
-    ansiRed: colors['terminal.ansiRed'],
+    ansiRed: colors['terminal.ansiRed'] || colors['editorError.foreground'],
     ansiWhite: colors['terminal.ansiWhite'],
-    ansiYellow: colors['terminal.ansiYellow'],
+    ansiYellow: colors['terminal.ansiYellow'] || colors['editorWarning.foreground'],
     ansiBrightBlack: colors['terminal.ansiBrightBlack'],
     ansiBrightBlue: colors['terminal.ansiBrightBlue'],
     ansiBrightCyan: colors['terminal.ansiBrightCyan'],
@@ -82,7 +82,7 @@ export function extractFromVscodeSchemesTheme(theme: VscodeSchemes): Colors {
 }
 
 export async function fetchVscTheme(path: string, force: boolean): Promise<Theme> {
-  const isLocal = !isUrl(path)
+  const isLocal = !isHttpUrl(path)
   if (isLocal)
     return await fetchLocalTheme(path)
   else
@@ -98,7 +98,7 @@ async function fetchLocalTheme(theme: string): Promise<Theme> {
 
   try {
     const content = await readFile(path, 'utf-8')
-    const theme = JSON.parse(content)
+    const theme = jsonParse(content)
     spinner.success('Theme loaded successfully')
     return theme
   }
@@ -118,7 +118,7 @@ async function fetchRemoteTheme(theme: string, force: boolean): Promise<Theme> {
     const cachePath = resolve(CACHE_DIR, `${name}.json`)
     if (existsSync(cachePath) && !force) {
       const content = await readFile(cachePath, 'utf-8')
-      const theme = JSON.parse(content)
+      const theme = jsonParse(content)
       spinner.success('Theme loaded successfully from cache')
       return theme
     }
@@ -126,14 +126,13 @@ async function fetchRemoteTheme(theme: string, force: boolean): Promise<Theme> {
     // fetch from remote
     const response = await fetch(url)
     const content = await response.text()
-    const theme = JSON.parse(content)
     spinner.success('Theme loaded successfully')
 
     // write to cache
-    if (!existsSync(CACHE_DIR)) {
+    if (!existsSync(CACHE_DIR))
       mkdirSync(CACHE_DIR, { recursive: true })
-    }
     await writeFile(cachePath, content)
+    const theme = jsonParse(content)
     return theme
   }
   catch (error) {

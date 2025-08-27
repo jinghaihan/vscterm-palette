@@ -2,7 +2,7 @@
   "name": "vscterm-palette",
   "type": "module",
   "version": "0.1.1",
-  "packageManager": "pnpm@10.14.0",
+  "packageManager": "pnpm@10.21.0",
   "description": "🎨 CLI tool to convert VSCode themes to terminal color schemes.",
   "author": "jinghaihan",
   "license": "MIT",
@@ -39,22 +39,22 @@
   ],
   "scripts": {
     "start": "tsx ./src/cli.ts",
-    "build": "unbuild",
-    "typecheck": "tsc",
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit",
     "test": "vitest",
     "lint": "eslint",
     "deps": "taze major -I",
-    "release": "bumpp && pnpm publish --no-git-checks",
+    "release": "bumpp",
     "catalog": "pncat",
-    "prepare": "npx simple-git-hooks",
+    "prepare": "simple-git-hooks",
     "bootstrap": "pnpm install",
-    "preinstall": "npx only-allow pnpm",
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
     "ansis": "catalog:node",
     "cac": "catalog:node",
     "colord": "catalog:utils",
+    "jsonc-parser": "catalog:utils",
     "pathe": "catalog:node",
     "yaml": "catalog:prod",
     "yocto-spinner": "catalog:node"
@@ -68,9 +68,9 @@
     "pncat": "catalog:cli",
     "simple-git-hooks": "catalog:lint",
     "taze": "catalog:cli",
+    "tsdown": "catalog:build",
     "tsx": "catalog:script",
-    "typescript": "catalog:dev",
-    "unbuild": "catalog:build",
+    "typescript": "catalog:tsc",
     "vitest": "catalog:test"
   },
   "simple-git-hooks": {
