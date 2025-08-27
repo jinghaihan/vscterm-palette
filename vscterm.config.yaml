@@ -4,5 +4,7 @@ themes:
   - 'https://github.com/antfu/vscode-theme-vitesse/blob/main/themes/vitesse-dark.json'
   - 'https://github.com/antfu/vscode-theme-vitesse/blob/main/themes/vitesse-light-soft.json'
   - 'https://github.com/antfu/vscode-theme-vitesse/blob/main/themes/vitesse-light.json'
+  - 'https://github.com/sainnhe/gruvbox-material-vscode/blob/master/themes/gruvbox-material-dark.json'
+  - 'https://github.com/sainnhe/gruvbox-material-vscode/blob/master/themes/gruvbox-material-light.json'
 
 tabbyConfig: /Users/jinghaihan/Library/Application Support/tabby/config.yaml
