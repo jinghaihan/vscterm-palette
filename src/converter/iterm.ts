@@ -17,7 +17,7 @@ export async function convertToItermTheme(name: string, colors: Colors, cwd: str
   if (!existsSync(dir))
     mkdirSync(dir, { recursive: true })
 
-  await writeItermTheme(itermTheme, resolve(dir, `${name}.itermcolors`))
+  await writeItermTheme(itermTheme, resolve(dir, `${name.toLowerCase()}.itermcolors`))
 }
 
 function hexToItermColor(vscColor: string): RgbaColor {

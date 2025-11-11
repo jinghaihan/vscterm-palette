@@ -4,5 +4,6 @@ themes:
   - 'https://github.com/antfu/vscode-theme-vitesse/blob/main/themes/vitesse-dark.json'
   - 'https://github.com/antfu/vscode-theme-vitesse/blob/main/themes/vitesse-light-soft.json'
   - 'https://github.com/antfu/vscode-theme-vitesse/blob/main/themes/vitesse-light.json'
+  - 'https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/vscode/Vesper.json'
 
 tabbyConfig: /Users/jinghaihan/Library/Application Support/tabby/config.yaml

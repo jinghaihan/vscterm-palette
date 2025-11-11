@@ -44,7 +44,7 @@ export async function convertToTabbyTheme(name: string, colors: Colors, cwd: str
     mkdirSync(dir, { recursive: true })
 
   tabbyTheme.set(name, theme)
-  await writeFile(resolve(dir, `${name}.yaml`), stringify(theme))
+  await writeFile(resolve(dir, `${name.toLowerCase()}.yaml`), stringify(theme))
 }
 
 export async function updateTabbyConfig(configPath: string, theme: string[]) {

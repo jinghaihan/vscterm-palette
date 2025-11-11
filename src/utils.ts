@@ -22,12 +22,11 @@ export function normalizeUrl(url: string) {
 }
 
 export function normalizeGithubUrl(url: string) {
-  // Replace github.com with raw.githubusercontent.com
-  let normalizedUrl = url.replace('https://github.com/', 'https://raw.githubusercontent.com/')
-  // Remove /blob/ from the path
-  normalizedUrl = normalizedUrl.replace('/blob/', '/')
-
-  return normalizedUrl
+  return url
+    // Replace github.com with raw.githubusercontent.com
+    .replace('https://github.com/', 'https://raw.githubusercontent.com/')
+    // Remove /blob/ from the path
+    .replace('/blob/', '/')
 }
 
 export function extractThemeName(theme: string) {

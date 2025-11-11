@@ -30,9 +30,8 @@ export async function resolveConfig(options: CommandOptions): Promise<ConvertOpt
     (options as ConvertOptions).tabbyConfigPath = configContent.tabbyConfig || ''
   }
 
-  if (!options.theme || options.theme.length === 0) {
+  if (!options.theme || options.theme.length === 0)
     throw new Error('Please specify the path to the theme file with --theme')
-  }
 
   return options as ConvertOptions
 }
